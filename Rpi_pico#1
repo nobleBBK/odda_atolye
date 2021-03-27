@@ -1,0 +1,49 @@
+"""
+sıcaklık sensörü
+------------
+"""
+
+import machine
+import utime
+
+sicaklik_sensor = machine.ADC(4)
+katsayi = 3.3/(65535)
+
+while True:
+    oku = sicaklik_sensor.read_u16()*katsayi
+    
+    temp = 27 - (oku - 0.706) / 0.001721
+    print(temp)
+    utime.sleep(1)
+
+"""
+---------------
+led with Timer
+----------
+"""
+
+from machine import Pin, Timer
+
+led = Pin(25, Pin.OUT)
+zaman = Timer()
+
+def blink(zaman):
+    led.toggle()
+    
+zaman.init(freq=2, mode=Timer.PERIODIC, callback=blink)
+
+"""
+led sleep ile
+"""
+
+from machine import Pin
+import utime
+
+led = Pin(25, Pin.OUT)
+while True:
+    led.value(1)
+    utime.sleep(1)
+    led.value(0)
+    utime.sleep(1)
+
+----------------------
