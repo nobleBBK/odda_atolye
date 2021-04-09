@@ -1,0 +1,65 @@
+"""
+Raspberry Pi Pico ders 3 kodları |odda Atölye|
+"""
+from machine import Pin
+import utime
+
+led0 = Pin(0, Pin.OUT) #ledlerin pinleri tanımlandı
+led1 = Pin(1, Pin.OUT)
+led2 = Pin(2, Pin.OUT)
+led3 = Pin(3, Pin.OUT)
+led4 = Pin(4, Pin.OUT)
+led5 = Pin(5, Pin.OUT)
+led6 = Pin(6, Pin.OUT)
+led7 = Pin(7, Pin.OUT)
+led8 = Pin(8, Pin.OUT)
+led9 = Pin(9, Pin.OUT)
+
+
+uyu = 0.5 #sleep süresi ayarlama değişkeni
+
+while True:
+    #0.Pin
+    led0.value(1)
+    utime.sleep(uyu)
+    led0.value(0)
+    #1.Pin
+    led1.value(1)
+    utime.sleep(uyu)
+    led1.value(0)
+    #2.Pin
+    led2.value(1)
+    utime.sleep(uyu)
+    led2.value(0)
+    #3.Pin
+    led3.value(1)
+    utime.sleep(uyu)
+    led3.value(0)
+    #4.Pin
+    led4.value(1)
+    utime.sleep(uyu)
+    led4.value(0)
+    #5.Pin
+    led5.value(1)
+    utime.sleep(uyu)
+    led5.value(0)
+    #6.Pin
+    led6.value(1)
+    utime.sleep(uyu)
+    led6.value(0)
+    #7.Pin
+    led7.value(1)
+    utime.sleep(uyu)
+    led7.value(0)
+    #8.Pin
+    led8.value(1)
+    utime.sleep(uyu)
+    led8.value(0)
+    #9.Pin
+    led9.value(1)
+    utime.sleep(uyu)
+    led9.value(0)
+    
+
+
+
