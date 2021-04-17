@@ -1,0 +1,22 @@
+from machine import Pin
+import utime
+
+led = Pin(2, Pin.OUT)
+buton = Pin(3, Pin.IN, Pin.PULL_DOWN)
+
+while True:
+    if buton.value() == 1:
+        led.value(1)
+    else:
+        led.value(0)
+        
+------------------------------------------------
+from machine import Pin
+import utime
+
+led = Pin(2, Pin.OUT)
+buton = Pin(3, Pin.IN, Pin.PULL_DOWN)
+
+while True:
+    if buton.value() == 1:
+        led.toggle()
