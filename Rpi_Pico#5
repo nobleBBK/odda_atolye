@@ -1,0 +1,12 @@
+from machine import Pin, PWM, ADC
+import utime
+
+led = PWM(Pin(14))
+pot = ADC(Pin(28))
+
+led.freq(1000)
+
+while True:
+  deger = pot.read_u16()
+  led.duty_u16(deger)
+  utime.sleep(0.25)
