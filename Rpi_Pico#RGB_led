@@ -1,0 +1,35 @@
+from machine import PWM, ADC, Pin
+import utime
+
+red = PWM(Pin(10))
+green = PWM(Pin(12))
+blue = PWM(Pin(13))
+artı = Pin(11, Pin.OUT)
+
+red.freq(1000)
+green.freq(1000)
+blue.freq(1000)
+
+pot1 = ADC(Pin(28))
+pot2 = ADC(Pin(27))
+pot3 = ADC(Pin(26))
+
+artı.value(1)
+
+while True:
+    d1 = pot1.read_u16()
+    d2 = pot2.read_u16()
+    d3 = pot3.read_u16()
+    
+    if d1 < 500:
+        d1 = 0
+    if d2 < 500:
+        d2 = 0
+    if d3 < 500:
+        d3 = 0
+    
+    red.duty_u16(65535 - d1)
+    green.duty_u16(65535 - d2)
+    blue.duty_u16(65535 - d3)
+    
+    utime.sleep(0.25)
