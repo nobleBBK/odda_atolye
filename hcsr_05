@@ -1,0 +1,26 @@
+from machine import Pin
+import utime
+import math
+
+
+trigger = Pin(15, Pin.OUT) #tetik pinini çıkış olarak ayarladık
+echo = Pin(14, Pin.IN) #geri dönen sesi alan echo pini giriş ayarlandı
+
+def mesafe_olc(): #measfeyi almak için fonksiyonumuz
+   trigger.low() #tetik pinin kapalı olarak başlatıyoruz
+   utime.sleep_us(2) #2 mikrosaniye beklemenin ardından açıp 10 mikrosaniye açık tutuyoruz
+   trigger.high()
+   utime.sleep_us(10)
+   trigger.low()
+   while echo.value() == 0: #yankı pinimiz kapalıyken
+       signaloff = utime.ticks_us() # mikrosaniye olarak sayaç başlatıyoruz
+   while echo.value() == 1: #yankı pini tetiklendiğinde
+       signalon = utime.ticks_us() #sayacı durduruyoruz
+   sure = signalon - signaloff #geçen zamanı buluyoruz
+   distance = (sure * 0.0343) / 2 #biraz matematik
+   return distance 
+
+while True:  
+   mesafe = mesafe_olc()
+   print("Nesneye olan uzaklık ", mesafe, "cm")
+   utime.sleep(0.5)
