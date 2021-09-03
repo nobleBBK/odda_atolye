@@ -1,4 +1,4 @@
-from machine import Pin
+from machine import Pin //Kütüphaneler
 import utime
 import math
 
